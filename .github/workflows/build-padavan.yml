@@ -34,16 +34,16 @@ jobs:
         KERNEL: 4.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
-        git clone --depth=1 https://github.com/aceboy50/bongo-net.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/hiedaze/FlaOS.git /opt/rt-n56u
         else
-        git clone --depth=1 https://github.com/aceboy50/Padavan.git /opt/rt-n56u
+        git clone --depth=1 https://github.com/hiedaze/Padavan.git /opt/rt-n56u
         fi
         cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-MINI
+        TNAME: MI-R4AG
         KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -139,7 +139,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #v2ray
         echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=n" >> .config #ddnsto  ~0.5M
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #Aliyun Cloud Disk  ~3m
-        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #Adguard Home
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
