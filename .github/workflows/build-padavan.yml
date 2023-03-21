@@ -58,7 +58,7 @@ jobs:
         fi
         cp -f configs/templates/$TNAME.config .config
         else
-        if [ ! -f configs/templates/$VENDOR$TNAME.config ] ; then
+        if [ ! -f configs/templates/$VENDOR/$TNAME.config ] ; then
         echo "configs/templates/$VENDOR/$TNAME.config not found "
         exit 1
         fi
