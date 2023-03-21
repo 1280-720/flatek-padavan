@@ -40,10 +40,11 @@ jobs:
         fi
         if [ $KERNEL = "4.4" ] ; then
         cd /opt/rt-n56u/toolchain-mipsel
+        sh dl_toolchain.sh
         else
         cd /opt/rt-n56u/toolchain
         fi
-        sh dl_toolchain.sh
+        sh build_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
