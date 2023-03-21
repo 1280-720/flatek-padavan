@@ -50,20 +50,20 @@ jobs:
         VENDOR: tplink
         KERNEL: 3.4
       run: |
-        if [ $KERNEL = "4.4" ] ; then
         cd /opt/rt-n56u/trunk
+        if [ $KERNEL = "4.4" ] ; then
         if [ ! -f configs/templates/$TNAME.config ] ; then
         echo "configs/templates/$TNAME.config not found "
         exit 1
         fi
         cp -f configs/templates/$TNAME.config .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         else
-        if [ ! -f configs/templates/$VENDOR/$TNAME.config ] ; then
+        if [ ! -f configs/templates/$VENDOR$TNAME.config ] ; then
         echo "configs/templates/$VENDOR/$TNAME.config not found "
         exit 1
         fi
         cp -f configs/templates/$VENDOR/$TNAME.config .config
+        fi
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         ################################################################################################
         #Since the configuration functions of different models are different, delete the configuration items first. 
