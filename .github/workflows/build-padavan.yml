@@ -40,11 +40,11 @@ jobs:
         fi
         if [ $KERNEL = "4.4" ] ; then
         cd /opt/rt-n56u/toolchain-mipsel
-        sh dl_toolchain.sh
         else
         cd /opt/rt-n56u/toolchain
+        wget -O dl_toolchain.sh --backups 0 https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
         fi
-        sh build_toolchain.sh
+        sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
