@@ -42,7 +42,7 @@ jobs:
         cd /opt/rt-n56u/toolchain-mipsel
         else
         cd /opt/rt-n56u/toolchain
-        wget -O dl_toolchain.sh --backups 0 https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
+        curl -o dl_toolchain.sh https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
         fi
         sh dl_toolchain.sh
         mkdir -p /opt/images/
