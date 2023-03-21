@@ -38,11 +38,10 @@ jobs:
         else
         git clone --depth=1 https://gitlab.com/hadzhioglu/padavan-ng.git /opt/rt-n56u
         fi
-        if [ $KERNEL = "4.4" ] ; then
-        cd /opt/rt-n56u/toolchain-mipsel
-        else
-        cd /opt/rt-n56u/toolchain
+        if [ $KERNEL = "3.4" ] ; then
+        mv /opt/rt-n56u/toolchain /opt/rt-n56u/toolchain-mipsel
         fi
+        cd /opt/rt-n56u/toolchain-mipsel
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
