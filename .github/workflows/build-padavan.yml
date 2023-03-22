@@ -54,7 +54,7 @@ jobs:
         cd /opt/rt-n56u/toolchain
         curl -o dl_toolchain.sh https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
         fi
-        sed -i 's+toolchain-3.4.x+out/bin+/g' dl_toolchain.sh
+        sed -i 's+toolchain-3.4.x+out/bin+g' dl_toolchain.sh
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
