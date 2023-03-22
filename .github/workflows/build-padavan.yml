@@ -60,8 +60,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: tl_wr841n-v14
-        VENDOR: tplink
+        TNAME: MI-MINI
+        VENDOR: XIAOMI
         KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
