@@ -53,6 +53,7 @@ jobs:
         sh dl_toolchain.sh
         else
         cd /opt/rt-n56u/toolchain
+        sh build_toolchain.sh
         #curl -o dl_toolchain.sh https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
         fi
         #sed -i 's+toolchain-3.4.x+out/bin+g' dl_toolchain.sh
