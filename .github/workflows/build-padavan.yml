@@ -55,6 +55,9 @@ jobs:
         curl -o dl_toolchain.sh https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
         fi
         sh dl_toolchain.sh
+        export ROOTDIR=$ROOTDIR
+        export CONFIG_TOOLCHAIN_DIR='${ROOTDIR}'
+        [ -f ../trunk/.config ] && . ../trunk/.config
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
