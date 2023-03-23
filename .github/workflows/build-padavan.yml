@@ -60,8 +60,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-MINI
-        VENDOR: XIAOMI
+        TNAME: mi-mini
+        VENDOR: xiaomi
         KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
