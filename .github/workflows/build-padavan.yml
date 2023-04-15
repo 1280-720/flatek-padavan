@@ -60,7 +60,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: newifi
+        TNAME: NEWIFI
         VENDOR: d-team
         KERNEL: 4.4
       run: |
