@@ -123,10 +123,14 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #Delete Smart DDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #Delete Trojan- Chinese GFW bypassing tool
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
+        # Delete Chinese
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d'
         ######################################################################
         #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
         ######################################################################
         if [ $KERNEL = "4.4" ] ; then
+        #Add language
+        echo "CONFIG_FIRMWARE_INCLUDE_LANG_VI=y" >> .config
         #Newlythings
         echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_HTTPS=n" >> .config
