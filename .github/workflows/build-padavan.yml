@@ -59,7 +59,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: mi-r3gv2_spi
+        TNAME: mi-mini
         VENDOR: xiaomi
         KERNEL: 3.4
       run: |
