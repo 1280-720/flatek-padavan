@@ -41,7 +41,7 @@ jobs:
         fi
     - name: Clone source code
       env:
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/hiedaze/FlaOS.git /opt/rt-n56u
@@ -50,19 +50,18 @@ jobs:
         fi
         if [ $KERNEL = "4.4" ] ; then
         cd /opt/rt-n56u/toolchain-mipsel
-        sh dl_toolchain.sh
         else
         cd /opt/rt-n56u/toolchain
-        sh build_toolchain.sh
-        #curl -o dl_toolchain.sh https://github.com/hanwckf/rt-n56u/raw/master/toolchain-mipsel/dl_toolchain.sh
+        sed -i 's+toolchain-4.4.x+out+g' dl_toolchain.sh
+        sed -i 's+https://github.com/hanwckf/padavan-toolchain/releases/download/linux-4.4-v1.0+https://github.com/hiedaze/prebuilt-toolchain/releases/download/v1.0/mipsel-linux-uclibc.tar.xz+g' dl_toolchain.sh
         fi
-        #sed -i 's+toolchain-3.4.x+out/bin+g' dl_toolchain.sh
+        sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-4
+        TNAME: mi-r3gv2_spi
         VENDOR: xiaomi
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ $KERNEL = "4.4" ] ; then
