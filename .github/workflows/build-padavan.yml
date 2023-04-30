@@ -15,7 +15,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
@@ -51,8 +51,8 @@ jobs:
         if [ $KERNEL = "4.4" ] ; then
         cd /opt/rt-n56u/toolchain-mipsel
         else
-        cd /opt/rt-n56u/toolchain
-        sed -i 's+toolchain-4.4.x+out+g' dl_toolchain.sh
+        cd /opt/rt-n56u/toolchain &&
+        sed -i 's+toolchain-4.4.x+out+g' dl_toolchain.sh &&
         sed -i 's+https://github.com/hanwckf/padavan-toolchain/releases/download/linux-4.4-v1.0+https://github.com/hiedaze/prebuilt-toolchain/releases/download/v1.0+g' dl_toolchain.sh
         fi
         sh dl_toolchain.sh
