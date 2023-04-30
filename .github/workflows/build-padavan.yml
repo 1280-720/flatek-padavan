@@ -50,12 +50,13 @@ jobs:
         fi
         if [ $KERNEL = "4.4" ] ; then
         cd /opt/rt-n56u/toolchain-mipsel
+        sh dl_toolchain.sh
         else
         cd /opt/rt-n56u/toolchain
         sed -i 's+toolchain-4.4.x+out+g' dl_toolchain.sh
         sed -i 's+https://github.com/hanwckf/padavan-toolchain/releases/download/linux-4.4-v1.0+https://github.com/hiedaze/prebuilt-toolchain/releases/download/v1.0+g' dl_toolchain.sh
-        fi
         sh dl_toolchain.sh
+        fi
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
