@@ -58,7 +58,7 @@ jobs:
         sh dl_toolchain.sh
         mkdir -p /opt/images/
     - name: Build Firmware
-      env:
+      env: #For kernel 4.4 use UPPERCASE. For 3.4 use lowercase, specific vendor section needed.
         TNAME: newifi-d2
         VENDOR: newifi
         KERNEL: 3.4
