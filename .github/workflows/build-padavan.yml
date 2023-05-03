@@ -41,7 +41,7 @@ jobs:
         fi
     - name: Clone source code
       env:
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/hiedaze/FlaOS.git /opt/rt-n56u
@@ -59,9 +59,9 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-4-SPI
-        VENDOR: xiaomi
-        KERNEL: 4.4
+        TNAME: newifi-d2
+        VENDOR: newifi
+        KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ $KERNEL = "4.4" ] ; then
