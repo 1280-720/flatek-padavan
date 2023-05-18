@@ -41,7 +41,7 @@ jobs:
         fi
     - name: Clone source code
       env:
-        KERNEL: 3.4
+        KERNEL: 4.4
       run: |
         if [ $KERNEL = "4.4" ] ; then
         git clone --depth=1 https://github.com/hiedaze/FlaOS.git /opt/rt-n56u
@@ -60,9 +60,9 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env: #For kernel 3.4 use lowercase. For 4.4 use UPPERCASE and vendor is not needed to specify.
-        TNAME: newifi-d2
+        TNAME: NEWIFI
         VENDOR: newifi
-        KERNEL: 3.4
+        KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ $KERNEL = "4.4" ] ; then
@@ -169,8 +169,8 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #Aliyun Cloud Disk  ~3m
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
-        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #Adguard Home
-        echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
+        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #Adguard Home
+        echo "CONFIG_FIRMWARE_INCLUDE_SQM=y"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
         echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #Integrate trojan execution file  1.2M
         else
         #Those things are kernel 3 padavan, i dont like it. Too unstable for new driver/routers
