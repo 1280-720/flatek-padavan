@@ -60,7 +60,7 @@ jobs:
         fi
         sh dl_toolchain.sh
         if [ $FLASPI = "newifi" ] ; then
-        cd /opt/rt-56u/trunk/linux-4.4.x/arch/mips/boot/dts/ralink
+        cd /opt/rt-n56u/trunk/linux-4.4.x/arch/mips/boot/dts/ralink
         sed -i 's+mt7621-spi-32m-layout.dtsi+mt7621-spi-16m-layout.dtsi+g' newifi.dts
         fi
         mkdir -p /opt/images/
