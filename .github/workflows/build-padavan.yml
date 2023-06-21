@@ -175,7 +175,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #Aliyun Cloud Disk  ~3m
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
-        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #Adguard Home
+        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #Adguard Home
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
         echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #Integrate trojan execution file  1.2M
         else
