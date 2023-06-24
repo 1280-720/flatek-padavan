@@ -66,8 +66,8 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env: #For kernel 3.4 use lowercase. For 4.4 use UPPERCASE and vendor is not needed to specify.
-        TNAME: MI-4-SPI
-        VENDOR: xiaomi
+        TNAME: ZTE-E8820S
+        VENDOR: zte
         KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -170,10 +170,10 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=n" >> .config #adbyby plus+
         echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
         echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #xray  ~4.5M
-        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #v2ray
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #v2ray
         echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=n" >> .config #ddnsto  ~0.5M
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #Aliyun Cloud Disk  ~3m
-        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #Adguard Home
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
