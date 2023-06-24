@@ -90,6 +90,7 @@ jobs:
         #If you want to add other items yourself, you should also write and delete this item, remember! ! !
         ################################################################################################
         #Crappy OpenSSL-related things, ppl using Padavan might not want it
+        if [ $KERNEL = "4.4" ] ; then
         sed -i '/CONFIG_FIRMWARE_INCLUDE_EAP_PEAP/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_HTTPS/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SFTP/d' .config
@@ -129,9 +130,12 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #Delete Smart DDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #Delete Trojan- Chinese GFW bypassing tool
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
-        sed -i '/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
+        CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
+        else
+        #for k3 do nothing, i don't maintain the source code anymore
+        fi
         ######################################################################
-        #以下选项是定义你需要的功能（y=集成,n=忽略），重新写入到.config文件
+        #以下选项是定义你需要的功能（y=yes,n=no），重新写入到.config文件
         ######################################################################
         if [ $KERNEL = "4.4" ] ; then
         echo "CONFIG_FIRMWARE_INCLUDE_LANG_VI=y" >> .config #Add Vietnamese language
