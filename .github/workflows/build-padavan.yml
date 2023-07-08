@@ -41,7 +41,7 @@ jobs:
         fi
     - name: Clone source code
       env:
-        KERNEL: 4.4
+        KERNEL: 3.4
         FLASPI: #newifi #Enter device's name to build exclusive firmware, leave empty to build common one.
       
       run: |
@@ -66,9 +66,9 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env: #For kernel 3.4 use lowercase. For 4.4 use UPPERCASE and vendor is not needed to specify.
-        TNAME: ZTE-E8820S
-        VENDOR: zte
-        KERNEL: 4.4
+        TNAME: mi-mini
+        VENDOR: xiaomi
+        KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ $KERNEL = "4.4" ] ; then
