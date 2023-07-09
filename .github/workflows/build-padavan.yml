@@ -108,7 +108,7 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ALIDDNS/d' .config #Delete AliDDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #Delete Smart DDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #Delete Trojan- Chinese GFW bypassing tool
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
         ######################################################################
         #The following options are to define the functions you need (y=yes, n=no), and rewrite them to the .config file
         ######################################################################
