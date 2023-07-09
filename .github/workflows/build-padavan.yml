@@ -108,11 +108,11 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ALIDDNS/d' .config #Delete AliDDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #Delete Smart DDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #Delete Trojan- Chinese GFW bypassing tool
-        sed -i '/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
+        #Add Vietnamese language
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN/CONFIG_FIRMWARE_INCLUDE_LANG_VI/g' .config
         ######################################################################
         #The following options are to define the functions you need (y=yes, n=no), and rewrite them to the .config file
         ######################################################################
-        echo "CONFIG_FIRMWARE_INCLUDE_LANG_VI=y" >> .config #Add Vietnamese language
         #Universal
         echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_HTTPS=n" >> .config
@@ -156,7 +156,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config        
         echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #xray  ~4.5M
-        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #v2ray
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #v2ray
         echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=n" >> .config #ddnsto  ~0.5M
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #Aliyun Cloud Disk  ~3m
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns 
