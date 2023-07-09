@@ -192,7 +192,6 @@ jobs:
         #sed -i '/CONFIG_FIRMWARE_INCLUDE_XXX/d' .config
         #echo "CONFIG_FIRMWARE_INCLUDE_XXX=y/n" >> .config
         #########################################################################################
-        if [ $KERNEL = "4.4" ] ; then
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
