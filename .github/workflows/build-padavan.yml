@@ -129,7 +129,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> .config #Downloader Client, Jdownloader better :P
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> .config
         #Tools
-        echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" .config
+        echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config #task monitor
         echo "CONFIG_FIRMWARE_INCLUDE_NANO=n" >> .config #vi alternative
         echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config #internal speedtest
@@ -139,7 +139,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_MINIEAP=n" >> .config #Delete MENTOHUST related
         echo "CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_VLMCSD=n" >> .config #Delete virtual KMS server
-        echo "CONFIG_FIRMWARE_INCLUDE_SOCAT=n" .config #Proxy related
+        echo "CONFIG_FIRMWARE_INCLUDE_SOCAT=n" >> .config #Proxy related
         echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #Integrate trojan execution file  1.2M
         #Exclusive features
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #Adguard Home
