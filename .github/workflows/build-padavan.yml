@@ -130,7 +130,7 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config #Delete Smart DDNS
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TROJAN/d' .config #Delete Trojan- Chinese GFW bypassing tool
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
-        CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN=y/d' .config #Delete Chinese language
         else
         #for k3 do nothing, i don't maintain the source code anymore
         fi
@@ -139,7 +139,7 @@ jobs:
         ######################################################################
         if [ $KERNEL = "4.4" ] ; then
         echo "CONFIG_FIRMWARE_INCLUDE_LANG_VI=y" >> .config #Add Vietnamese language
-        #Newlythings
+        #Universal
         echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_HTTPS=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SFTP=n" >> .config
@@ -154,7 +154,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> .config #Downloader Client, Jdownloader better :P
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> .config
-        #REmaining
+        #hanwckf and chinese's exclusive
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" .config
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #Delete SCUTCLIENT
         echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config #Delete DOGCOM battery
@@ -183,7 +183,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
         echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #Integrate trojan execution file  1.2M
         else
-        #Those things are kernel 3 padavan, i dont like it. Too unstable for new driver/routers
+        #k3.4 padavan
         #echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config #MENTOHUST
         #echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #SCUTCLIENT
         #echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=y" >> .config #SS plus+
