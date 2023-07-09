@@ -42,7 +42,7 @@ jobs:
     - name: Clone source code
       env:
         KERNEL: 3.4
-        FLASPI: #newifi #Enter device's name to build exclusive firmware, leave empty to build common one.
+
       
       run: |
         if [ $KERNEL = "4.4" ] ; then
@@ -59,10 +59,7 @@ jobs:
         sed -i 's+-xf+xzf+g' dl_toolchain.sh
         fi
         sh dl_toolchain.sh
-        if [ $FLASPI = "newifi" ] ; then
-        cd /opt/rt-n56u/trunk/linux-4.4.x/arch/mips/boot/dts/ralink
-        sed -i 's+mt7621-spi-32m-layout.dtsi+mt7621-spi-16m-layout.dtsi+g' newifi.dts
-        fi
+
         mkdir -p /opt/images/
     - name: Build Firmware
       env: #For kernel 3.4 use lowercase. For 4.4 use UPPERCASE and vendor is not needed to specify.
