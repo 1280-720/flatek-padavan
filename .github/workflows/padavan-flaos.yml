@@ -1,4 +1,4 @@
-name: Build FlaOS
+name: Build FlaOS-official
 
 on: 
   release:
