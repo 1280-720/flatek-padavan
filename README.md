@@ -1,2 +1,1 @@
-# Padavan-build from ChongShengB
-Clean build
+# FlaOS-Padavan cloud builder
