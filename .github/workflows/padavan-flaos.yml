@@ -115,25 +115,25 @@ jobs:
         #The following options are to define the functions you need (y=yes, n=no), and rewrite them to the .config file
         ######################################################################
         #Universal
-        echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_HTTPS=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_SFTP=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_EAP_PEAP=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_HTTPS=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SFTP=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR=y" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_SSWAN=n" >> .config #StrongSwan is IPSec MultiClient
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=n" >> .config #Torrent Client
-        echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> .config #Downloader Client, Jdownloader better :P
-        echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_DROPBEAR_FAST_CODE=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_SSWAN=y" >> .config #StrongSwan is IPSec MultiClient
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=y" >> .config #Torrent Client
+        echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_ARIA=y" >> .config #aria2
+        echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=y" >> .config
         #Tools
-        echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config #task monitor
-        echo "CONFIG_FIRMWARE_INCLUDE_NANO=n" >> .config #vi alternative
-        echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config #internal speedtest
+        echo "CONFIG_FIRMWARE_INCLUDE_CURL=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_HTOP=y" >> .config #task monitor
+        echo "CONFIG_FIRMWARE_INCLUDE_NANO=y" >> .config #vi alternative
+        echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=y" >> .config #internal speedtest
         #hanwckf and chinese's exclusive
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #Delete SCUTCLIENT
         echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config #Delete DOGCOM battery
@@ -146,7 +146,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #Adguard Home
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
         echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y"  >> .config #wireguard        
-        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=n" >> .config #zerotier ~1.3M
+        echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         if [ $KERNEL = "4.4" ] ; then        
         #Default from chongshengB
         echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config #MENTOHUST        
@@ -156,8 +156,8 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ADBYBY=n" >> .config #adbyby plus+
         echo "CONFIG_FIRMWARE_INCLUDE_DNSFORWARDER=n" >> .config #DNSFORWARDER
         echo "CONFIG_FIRMWARE_INCLUDE_SRELAY=n" >> .config        
-        echo "CONFIG_FIRMWARE_INCLUDE_XRAY=n" >> .config #xray  ~4.5M
-        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=n" >> .config #v2ray
+        echo "CONFIG_FIRMWARE_INCLUDE_XRAY=y" >> .config #xray  ~4.5M
+        echo "CONFIG_FIRMWARE_INCLUDE_V2RAY=y" >> .config #v2ray
         echo "CONFIG_FIRMWARE_INCLUDE_DDNSTO=n" >> .config #ddnsto  ~0.5M
         echo "CONFIG_FIRMWARE_INCLUDE_ALDRIVER=n" >> .config  #Aliyun Cloud Disk  ~3m
         echo "CONFIG_FIRMWARE_INCLUDE_ALIDDNS=n" >> .config #aliddns 
