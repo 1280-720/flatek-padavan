@@ -1,4 +1,4 @@
-name: Build FlaOS-official
+name: Build FlaOS-official (Mini)
 
 on: 
   release:
