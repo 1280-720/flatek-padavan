@@ -1,4 +1,4 @@
-name: Build FlaOS-official (Full)
+name: Build FlaOS-official (ZTE-E8820S-SPI)
 
 on: 
   release:
