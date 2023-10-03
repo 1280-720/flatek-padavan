@@ -206,7 +206,7 @@ jobs:
         #sed -i 's/CONFIG_PCI_DOMAINS=y/CONFIG_PCI_DOMAINS=n/g' configs/boards/NEWIFI/kernel-4.4.x.config
         #sed -i 's/CONFIG_WLAN=y/CONFIG_WLAN=n/g' configs/boards/NEWIFI/kernel-4.4.x.config
         #sed -i 's/CONFIG_WL_MEDIATEK=y/CONFIG_WL_MEDIATEK=n/g' configs/boards/NEWIFI/kernel-4.4.x.config
-        sed -i 's/CONFIG_WIFI_DRIVER=y/CONFIG_WIFI_DRIVER=n/g' configs/boards/NEWIFI/kernel-4.4.x.config
+        #sed -i 's/CONFIG_WIFI_DRIVER=y/CONFIG_WIFI_DRIVER=n/g' configs/boards/NEWIFI/kernel-4.4.x.config
         sed -i 's/mt7621-spi-32m-layout.dtsi/mt7621-spi-16m-layout.dtsi/g' linux-4.4.x/arch/mips/boot/dts/ralink/newifi.dts
         sed -i '75s/okay/disabled/g' linux-4.4.x/arch/mips/boot/dts/ralink/newifi.dts
         #########################################################################################
