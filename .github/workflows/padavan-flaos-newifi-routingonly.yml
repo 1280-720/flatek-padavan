@@ -88,8 +88,15 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_CURL/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config #task manager
         sed -i '/CONFIG_FIRMWARE_INCLUDE_NANO/d' .config #vi alternative
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TCPDUMP/d' .config #tcp catch tool
         sed -i '/CONFIG_FIRMWARE_INCLUDE_IPERF3/d' .config #internal speedtest
         sed -i '/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config #Wireguard
+        #USB functions
+        sed -i 's/CONFIG_FIRMWARE_ENABLE_EXT2=y/CONFIG_FIRMWARE_ENABLE_EXT2=n/g' .config
+        sed -i 's/CONFIG_FIRMWARE_ENABLE_EXT3=y/CONFIG_FIRMWARE_ENABLE_EXT3=n/g' .config
+        sed -i 's/CONFIG_FIRMWARE_ENABLE_EXT4=y/CONFIG_FIRMWARE_ENABLE_EXT4=n/g' .config
+        sed -i 's/CONFIG_FIRMWARE_ENABLE_FUSE=y/CONFIG_FIRMWARE_ENABLE_FUSE=n/g' .config
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SMBD=y/CONFIG_FIRMWARE_INCLUDE_SMBD=n/g' .config
         #Chinese stuffs
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT/d' .config #Delete SCUTCLIENT
         sed -i '/CONFIG_FIRMWARE_INCLUDE_DOGCOM/d' .config #Delete DOGCOM battery
@@ -135,6 +142,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config #task monitor
         echo "CONFIG_FIRMWARE_INCLUDE_NANO=n" >> .config #vi alternative
         echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config #internal speedtest
+        echo "CONFIG_FIRMWARE_INCLUDE_TCPDUMP=n" >> .config #tcp catch tool
         #hanwckf and chinese's exclusive
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #Delete SCUTCLIENT
         echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config #Delete DOGCOM battery
