@@ -154,7 +154,7 @@ jobs:
         #Exclusive features
         echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #Adguard Home
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
-        echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y"  >> .config #wireguard        
+        echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n"  >> .config #wireguard        
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
         if [ $KERNEL = "4.4" ] ; then        
         #Default from chongshengB
