@@ -54,7 +54,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-R3P
+        TNAME: NEWIFI
         KERNEL: 4.4
       run: |
         cd /opt/rt-n56u/trunk
@@ -63,7 +63,7 @@ jobs:
         exit 1
         fi
         cp -f configs/templates/$TNAME.config .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
+        #sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
         ################################################################################################
         #Since the configuration functions of different models are different, delete the configuration items first. 
         #If you want to add other items yourself, you should also write and delete this item, remember! ! !
@@ -83,7 +83,7 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ARIA/d' .config #Downloader Client, Jdownloader better :P
         sed -i '/CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE/d' .config
         #Tools
         sed -i '/CONFIG_FIRMWARE_INCLUDE_CURL/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config #task manager
@@ -123,16 +123,17 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_OPENSSH=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_OPENVPN=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_SSWAN=n" >> .config #StrongSwan is IPSec MultiClient
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=y" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EC=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION=n" >> .config #Torrent Client
         echo "CONFIG_FIRMWARE_INCLUDE_TRANSMISSION_WEB_CONTROL=n" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> .config #aria2
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> .config
         #Tools
         echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config
-        echo "CONFIG_FIRMWARE_INCLUDE_HTOP=y" >> .config #task monitor
-        echo "CONFIG_FIRMWARE_INCLUDE_NANO=y" >> .config #vi alternative
+        echo "CONFIG_FIRMWARE_INCLUDE_HTOP=n" >> .config #task monitor
+        echo "CONFIG_FIRMWARE_INCLUDE_NANO=n" >> .config #vi alternative
         echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config #internal speedtest
         #hanwckf and chinese's exclusive
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #Delete SCUTCLIENT
@@ -143,7 +144,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SOCAT=n" >> .config #Proxy related
         echo "CONFIG_FIRMWARE_INCLUDE_TROJAN=n" >> .config #Integrate trojan execution file  1.2M
         #Exclusive features
-        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=y" >> .config #Adguard Home
+        echo "CONFIG_FIRMWARE_INCLUDE_ADGUARDHOME=n" >> .config #Adguard Home
         echo "CONFIG_FIRMWARE_INCLUDE_SQM=n"  >> .config #sqm Remember that SQM will affects the HWNAT Offloading Function!
         echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=y"  >> .config #wireguard        
         echo "CONFIG_FIRMWARE_INCLUDE_ZEROTIER=y" >> .config #zerotier ~1.3M
@@ -192,6 +193,14 @@ jobs:
         #For example：
         #sed -i '/CONFIG_FIRMWARE_INCLUDE_XXX/d' .config
         #echo "CONFIG_FIRMWARE_INCLUDE_XXX=y/n" >> .config
+        sed -i 's/CONFIG_HW_HAS_PCI=y/CONFIG_HW_HAS_PCI=n/g' trunk/configs/boards/NEWIFI/kernel-4.4.x.config
+        sed -i 's/CONFIG_PCI=y/CONFIG_PCI=n/g' trunk/configs/boards/NEWIFI/kernel-4.4.x.config
+        sed -i 's/CONFIG_PCI_DOMAINS=y/CONFIG_PCI_DOMAINS=n/g' trunk/configs/boards/NEWIFI/kernel-4.4.x.config
+        sed -i 's/CONFIG_WLAN=y/CONFIG_WLAN=n/g' trunk/configs/boards/NEWIFI/kernel-4.4.x.config
+        sed -i 's/CONFIG_WL_MEDIATEK=y/CONFIG_WL_MEDIATEK=n/g' trunk/configs/boards/NEWIFI/kernel-4.4.x.config
+        sed -i 's/CONFIG_WIFI_DRIVER=y/CONFIG_WIFI_DRIVER=n/g' trunk/configs/boards/NEWIFI/kernel-4.4.x.config
+        sed -i 's/mt7621-spi-32m-layout.dtsi/mt7621-spi-8m-layout.dtsi/g' trunk/linux-4.4.x/arch/mips/boot/dts/ralink/newifi.dts
+        sed -i '74d;75d;76d' trunk/linux-4.4.x/arch/mips/boot/dts/ralink/newifi.dts
         #########################################################################################
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
