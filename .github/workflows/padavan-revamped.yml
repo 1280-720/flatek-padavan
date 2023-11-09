@@ -25,13 +25,13 @@ jobs:
         key: ${{ matrix.target }}-${{ matrix.toolchain }}
     - name: Golang
       uses: actions/setup-go@v4
-        with:
+      with:
           go-version: '1.20'
           check-latest: true
           cache: false
     - name: Setup node      
       uses: actions/setup-node@v3
-        with:
+      with:
           node-version: 18
           check-latest: true
     - name: Initialization environment
@@ -39,15 +39,15 @@ jobs:
           sudo apt update
           sudo apt install libtool-bin gperf python3-docutils autopoint gettext ccache
     - name: Build
-        run: |
+      run: |
           sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN/CONFIG_FIRMWARE_INCLUDE_LANG_VI/g' trunk/configs/templates/${{ matrix.target }}.config
           make ${{ matrix.target }} TOOLCHAIN=${{ matrix.toolchain }}
           if [ "${{ matrix.target }}" = "K2P-NANO" ]; then
             image=$(ls trunk/images/*.trx)
             mv $image $(echo $image | sed 's/K2P/K2P-NANO/')
           fi
-      - uses: actions/upload-artifact@v3
-        with:
+    - uses: actions/upload-artifact@v3
+      with:
           name: ${{ matrix.toolchain }}
           path: trunk/images/*.trx
   publish:
