@@ -32,7 +32,7 @@ jobs:
         mkdir -p /opt/images/
     - name: Build Firmware
       env:
-        TNAME: MI-R3P
+        TNAME: ZTE-E8820S-SPI
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
