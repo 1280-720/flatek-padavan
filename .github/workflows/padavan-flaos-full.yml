@@ -107,10 +107,10 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA=n" >> .config #aria2
         echo "CONFIG_FIRMWARE_INCLUDE_ARIA_WEB_CONTROL=n" >> .config
         #Tools
-        echo "CONFIG_FIRMWARE_INCLUDE_CURL=n" >> .config
+        echo "CONFIG_FIRMWARE_INCLUDE_CURL=y" >> .config
         echo "CONFIG_FIRMWARE_INCLUDE_HTOP=y" >> .config #task monitor
         echo "CONFIG_FIRMWARE_INCLUDE_NANO=y" >> .config #vi alternative
-        echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=n" >> .config #internal speedtest
+        echo "CONFIG_FIRMWARE_INCLUDE_IPERF3=y" >> .config #internal speedtest
         #hanwckf and chinese's exclusive
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config #Delete SCUTCLIENT
         echo "CONFIG_FIRMWARE_INCLUDE_DOGCOM=n" >> .config #Delete DOGCOM battery
