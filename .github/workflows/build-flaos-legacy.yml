@@ -46,6 +46,9 @@ jobs:
         fi
         cp -f configs/templates/$TNAME.config .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
+
+        ### Remove chinese language / Add Vietnamese language ###
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_LANG_CN/d' .config
         
         ### Delete old configs ###        
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MENTOHUST/d' .config
@@ -61,25 +64,25 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SMARTDNS/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SRELAY/d' .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_GDUT_DRCOM/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_DOGCOM/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_MINIEAP/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_NAPT66/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_VLMCSD/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_TTYD/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_LRZSZ/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_NANO/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_IPERF3/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_DUMP1090/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_RTL_SDR/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_MTR/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_SOCAT/d' .config
-        sed -i 's/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_GDUT_DRCOM/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_DOGCOM/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_MINIEAP/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_NJIT_CLIENT/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_NAPT66/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_SERVER/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CLIENT/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SOFTETHERVPN_CMD/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_VLMCSD/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_TTYD/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_LRZSZ/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_HTOP/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_NANO/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_IPERF3/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_DUMP1090/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_RTL_SDR/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_MTR/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_SOCAT/d' .config
+        sed -i '/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config
         
         ### Define custom config ###
         echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config 
