@@ -47,10 +47,10 @@ jobs:
         cp -f configs/templates/$TNAME.config .config
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
 
-        ### Add Vietnamese language ###
+        ###Add Vietnamese language
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN/CONFIG_FIRMWARE_INCLUDE_LANG_VI/g' .config
         
-        ### Delete old configs ###        
+        ###Delete old configs
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MENTOHUST/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS/d' .config
@@ -84,7 +84,7 @@ jobs:
         sed -i '/CONFIG_FIRMWARE_INCLUDE_SOCAT/d' .config
         sed -i '/CONFIG_FIRMWARE_INCLUDE_WIREGUARD/d' .config
         
-        ### Define custom config ###
+        ###Define custom config
         echo "CONFIG_FIRMWARE_INCLUDE_MENTOHUST=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_SHADOWSOCKS=n" >> .config 
@@ -128,7 +128,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_SOCAT=n" >> .config 
         echo "CONFIG_FIRMWARE_INCLUDE_WIREGUARD=n" >> .config 
         
-        ### Start building ###        
+        ###Start building
         sudo ./clear_tree
         sudo ./build_firmware_modify $TNAME 0
         sudo mv -f images/*.trx /opt/images/
