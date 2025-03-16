@@ -48,7 +48,7 @@ jobs:
         sed -i 's/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=n/CONFIG_FIRMWARE_INCLUDE_OPENSSL_EXE=y/g' .config
 
         ### Remove chinese language / Add Vietnamese language ###
-        sed -i '/CONFIG_FIRMWARE_INCLUDE_LANG_CN/d' .config
+        sed -i 's/CONFIG_FIRMWARE_INCLUDE_LANG_CN/CONFIG_FIRMWARE_INCLUDE_LANG_VI/g' .config
         
         ### Delete old configs ###        
         sed -i '/CONFIG_FIRMWARE_INCLUDE_MENTOHUST/d' .config
